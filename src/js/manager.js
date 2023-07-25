@@ -18,6 +18,11 @@ export class Manager{
         this.todoArray.sort((todo1,todo2)=>todo1.compareByDate(todo2));
     }
 
+
+    orderTodosByCompletion(){
+        this.todoArray.sort((todo1, todo2) => todo1.compareByCompletion(todo2))
+    }
+
     changeCompleteStatus(index){
         const todo = this.todoArray[index];
         todo.isCompleted = !todo.isCompleted;

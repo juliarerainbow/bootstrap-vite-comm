@@ -13,4 +13,10 @@ export class Todo{
     compareByDate(todo){
         return todo.creationDate.getTime() - this.creationDate.getTime();
     }
+
+
+    compareByCompletion(todo){
+        return this.title.localeCompare(todo.isCompleted);
+    }
+
 }

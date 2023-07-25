@@ -130,6 +130,15 @@ btnOrderByDate.addEventListener('click', () => {    console.log('cc')
 
 
 
+const btnOrderByCompletion = document.getElementById('btnOrderByCompletion');
+btnOrderByCompletion.addEventListener('click', () => {    console.log('cc')
+manager.orderTodosByCompletion();
+render();
+});
+
+
+
+
 
 function orderByDate(){
     manager.orderTodosByDate();
