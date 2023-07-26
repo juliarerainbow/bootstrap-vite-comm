@@ -31,10 +31,7 @@ function render() {
         // div.classList.add('m-3');
         div.classList.add('p-3');
 
-        if (todo.isCompleted) {
-            div.style.borderColor = 'lime';
-            div.style.backgroundColor = '#00ff003b';
-        }
+
 
         const titleStrong = document.createElement('strong');
         const titleNode = document.createTextNode(todo.title);
@@ -43,13 +40,15 @@ function render() {
         div.appendChild(titleStrong);
 
         const dateSpan = document.createElement('span');
-        const dateNode = document.createTextNode(todo.creationDate.toISOString());
+        const dateNode = document.createTextNode(todo.creationDate.toISOString().substring(0, 10));
+        // console.log(todo.creationDate.)
 
         dateSpan.appendChild(dateNode);
         div.appendChild(dateSpan);
 
         const completeBtn = document.createElement('button');
-        const completeNode = document.createTextNode(todo.isCompleted ? 'da completare' : 'completato');
+
+        const completeNode = document.createTextNode(todo.isCompleted ? 'completato ✔️' : 'da completare ');
         completeBtn.classList.add("btn");
         completeBtn.classList.add("btn-outline-success");
         completeBtn.classList.add("m-2");
@@ -68,14 +67,28 @@ function render() {
                 manager.changeCompleteStatus(i);
                 render();
             })
+
         });
+
+        if (todo.isCompleted) {
+            div.style.borderColor = 'lime';
+            div.style.backgroundColor = '#00ff003b';
+            div.addEventListener("mouseover", () => {
+                div.style.backgroundColor = 'rgb(0 255 0 / 47%)';
+            });
+
+            div.addEventListener("mouseout", () => {
+                div.style.backgroundColor = '#00ff003b';
+            });
+
+        }
 
         completeBtn.appendChild(completeNode);
         div.appendChild(completeBtn);
 
 
         const deleteBtn = document.createElement('button');
-        const deleteNode = document.createTextNode('cancella');
+        const deleteNode = document.createTextNode('cancella ✖️');
         deleteBtn.classList.add("btn");
         deleteBtn.classList.add("btn-outline-danger");
         deleteBtn.classList.add("m-2");
@@ -92,7 +105,7 @@ function render() {
 
 
         const detailBtn = document.createElement('button');
-        const detailBtnNode = document.createTextNode('dettaglio');
+        const detailBtnNode = document.createTextNode('dettaglio 🔍');
         detailBtn.classList.add("btn");
         detailBtn.classList.add("btn-outline-primary");
         detailBtn.classList.add("m-2");
@@ -105,9 +118,9 @@ function render() {
             const detailModalBody = document.getElementById('detail-modal-body');
             detailModalBody.innerHTML = "";
 
-            detailModalBody.innerHTML = `<h2>${todo.title}</h2>
-            <span>${todo.isCompleted ? '' : 'non'} sono completato</span>
-            <span>${todo.creationDate.toISOString()}</span>`
+            detailModalBody.innerHTML = `<h6 class="mb-4" >${todo.title}</h6>
+            <p>Stato del todo: ${todo.isCompleted ? '' : 'non'} completato</p>
+            <p>Data di creazione : ${todo.creationDate.toISOString().substring(0, 10)}</>`
 
         });
 

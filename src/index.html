@@ -20,23 +20,23 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button class="btn btn-primary" id="btnOrderByTitle" onclick="orderByTitle()">Ordina per nome</button>
+                <button class="btn" id="btnOrderByTitle" onclick="orderByTitle()">Ordina per nome</button>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button class="btn btn-info" id="btnOrderByDate" onclick="orderByDate()">Ordina per data</button>
+                <button class="btn" id="btnOrderByDate" onclick="orderByDate()">Ordina per data</button>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button class="btn btn-warning" id="btnOrderByCompletion" onclick="orderByCompletion()">Ordina per
+                <button class="btn" id="btnOrderByCompletion" onclick="orderByCompletion()">Ordina per
                   completati</button>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   Aggiungi Todo
                 </button>
               </a>
@@ -47,13 +47,18 @@
     </nav>
 
   </div>
-  <div class="container py-4 px-3 mx-auto text-center">
-    <h1> Todos list</h1>
+  <div class="main-container">
+    <div class="container py-4 px-3 mx-auto text-center ">
 
-    <div id="todo-container" class=" container row gap-3 d-flex justify-content-center">
+      <div class="twelve mb-5">
+        <h1>Todos</h1>
+      </div>
+
+      <div id="todo-container" class=" container row gap-3 d-flex justify-content-center">
+
+      </div>
 
     </div>
-
   </div>
 
 
@@ -103,8 +108,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" id="add-todo-btn" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+          <button type="button" id="add-todo-btn" class="btn btn-primary">Aggiungi</button>
         </div>
       </div>
     </div>
